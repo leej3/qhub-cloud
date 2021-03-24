@@ -130,6 +130,28 @@ c.JupyterHub.admin_access = True
 c.Authenticator.admin_users = qhub_list_admins(QHUB_USER_MAPPING)
 c.Authenticator.whitelist = qhub_list_users(QHUB_USER_MAPPING)
 
+c.KubeSpawner.volume_mounts += [
+    {
+    'name': 'home',
+    'mountPath': '/home/userskel',
+    'subPath': 'home/userskel'
+    }
+]
+
+if 'admin' in QHUB_GROUP_MAPPING:
+    c.KubeSpawner.init_containers += [
+        {
+                "name": "init-nfs-userskel",
+                "image": "busybox:1.31",
+                "command": ["sh", "-c", ' && '.join([
+                    "chown -R 1000:101 /mnt/home/userskel",
+                    "chmod -R u=rwx,g=rwx,o=r /mnt/home/userskel"
+                ])],
+                "securityContext": {"runAsUser": 0},
+                "volumeMounts": [{"mountPath": "/mnt", "name": "home"}]
+        }
+    ]
+
 {% if cookiecutter.security.authentication.type == 'password' %}
 # ==================== AUTHENTICATION ======================
 # create passwords via
