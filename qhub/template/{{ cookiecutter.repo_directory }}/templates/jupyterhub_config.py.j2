@@ -152,6 +152,12 @@ if 'admin' in QHUB_GROUP_MAPPING:
         }
     ]
 
+    c.KubeSpawner.lifecycle_hooks['postStart'] = {
+        "exec": {
+                "command": ["/bin/sh", "-c", "cp -nrT /home/userskel /home/jovyan"]
+            }
+    }
+
 {% if cookiecutter.security.authentication.type == 'password' %}
 # ==================== AUTHENTICATION ======================
 # create passwords via
