@@ -12,6 +12,7 @@
 
 ### Feature changes and enhancements
 * Terraform binary is auto-installed and version managed by qhub
+* Support for namespaces with qhub deployments on kubernetes clusters
 * Full JupyterHub theming including colors now.
 * JupyterHub docker image now independent from zero-to-jupyterhub.
 * JupyterLab 3 now default user Docker image.
