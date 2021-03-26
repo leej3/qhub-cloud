@@ -177,11 +177,12 @@ class Profiles(Base):
     dask_worker: typing.Dict[str, DaskWorker] = {}
 
 
-project_name_regex_type = pydantic.constr(regex="^[A-Za-z-_]+$")
+regex_letters_dash_underscore_type = pydantic.constr(regex="^[A-Za-z-_]+$")
 
 
 class Main(Base):
-    project_name: project_name_regex_type
+    project_name: regex_letters_dash_underscore_type
+    namespace: regex_letters_dash_underscore_type
     provider: ProviderEnum
     ci_cd: CiEnum
     security: Security
