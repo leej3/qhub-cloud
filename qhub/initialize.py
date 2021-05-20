@@ -16,7 +16,7 @@ from qhub.provider.cloud import digital_ocean
 from qhub.utils import namestr_regex, qhub_image_tag, check_cloud_credentials
 
 logger = logging.getLogger(__name__)
-
+# TODO: need to define clearml relevant values
 BASE_CONFIGURATION = {
     "project_name": None,
     "provider": None,
@@ -24,6 +24,7 @@ BASE_CONFIGURATION = {
     "certificate": {
         "type": "self-signed",
     },
+    "clearml": {},
     "security": {
         "authentication": None,
         "users": {

@@ -1,0 +1,5 @@
+name: clearml-server-chart
+apiVersion: v1
+appVersion: "1.0.1"
+description: Clearml server Helm chart for Kubernetes
+version: 1.0.1+1

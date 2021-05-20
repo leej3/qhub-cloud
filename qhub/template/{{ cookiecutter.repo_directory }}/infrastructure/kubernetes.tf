@@ -215,3 +215,16 @@ module "prefect" {
   prefect_token        = var.prefect_token
 }
 {% endif -%}
+
+{% if cookiecutter.clearml is true -%}
+module "clearml" {
+  source = "./modules/kubernetes/services/clearml"
+
+  depends_on = [
+    module.qhub
+  ]
+  namespace            = var.environment
+  jupyterhub_api_token = module.qhub.jupyterhub_api_token
+  clearml_token        = var.clearml_token
+}
+{% endif -%}
