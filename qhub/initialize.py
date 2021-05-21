@@ -24,7 +24,6 @@ BASE_CONFIGURATION = {
     "certificate": {
         "type": "self-signed",
     },
-    "clearml": {},
     "security": {
         "authentication": None,
         "users": {
