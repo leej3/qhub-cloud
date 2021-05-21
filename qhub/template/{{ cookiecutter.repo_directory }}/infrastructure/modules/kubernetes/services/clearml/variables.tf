@@ -8,7 +8,3 @@ variable "namespace" {
   default = ""
 }
 
-variable "clearml_token" {
-  type    = string
-  default = ""
-}

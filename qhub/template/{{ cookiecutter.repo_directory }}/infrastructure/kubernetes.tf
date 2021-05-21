@@ -225,6 +225,5 @@ module "clearml" {
   ]
   namespace            = var.environment
   jupyterhub_api_token = module.qhub.jupyterhub_api_token
-  clearml_token        = var.clearml_token
 }
 {% endif -%}

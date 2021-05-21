@@ -4,11 +4,6 @@ resource "helm_release" "clearml" {
   chart     = "${path.module}/chart"
 
   set_sensitive {
-    name  = "clearmlToken"
-    value = var.clearml_token
-  }
-
-  set_sensitive {
     name  = "jupyterHubToken"
     value = var.jupyterhub_api_token
   }
