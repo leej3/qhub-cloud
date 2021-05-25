@@ -215,3 +215,13 @@ module "prefect" {
   prefect_token        = var.prefect_token
 }
 {% endif -%}
+
+{% if cookiecutter.clearml is true -%}
+resource "helm_release" "clearml" {
+  name       = "clearml-server"
+  repository = "https://github.com/allegroai/clearml-server-helm.git"
+  chart      = "clearml"
+  namespace            = var.environment
+  jupyterhub_api_token = module.qhub.jupyterhub_api_token
+}
+{% endif -%}
