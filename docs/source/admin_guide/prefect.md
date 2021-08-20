@@ -31,7 +31,11 @@ prefect create project 'your-prefect-project-name'
 
 The `TF_VAR_prefect_token` API key is set as `PREFECT__CLOUD__AGENT__AUTH_TOKEN`
 environment variable in the agent. It is used while deploying Prefect Agent so that
-it can connect to Prefect Cloud and query flows.
+it can connect to Prefect Cloud and query flows. Additionally you may want to specify image
+pull secrets for the prefect agent so that a private docker registry can be used for 
+prefect runner images (TF_VAR_image_pull_secret) or GCP credentials for authentication
+with google apps (TF_VAR_gcp_credentials set to PREFECT__CONTEXT__SECRETS__GCP_CREDENTIALS).
+See [this link](https://docs.prefect.io/core/concepts/schedules.html#default-secrets) for more details.
 
 
 ## Prefect Cloud

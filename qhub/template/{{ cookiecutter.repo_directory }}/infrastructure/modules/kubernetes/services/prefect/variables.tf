@@ -8,6 +8,10 @@ variable "namespace" {
   default = "dev"
 }
 
+variable "image_pull_secret" {
+  type = string
+}
+
 variable "prefect_token" {
   type = string
 }

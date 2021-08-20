@@ -120,4 +120,7 @@ variable "conda-store-image" {
 variable "prefect_token" {
   type = string
 }
+variable "image_pull_secret" {
+  type = string
+}
 {%- endif %}

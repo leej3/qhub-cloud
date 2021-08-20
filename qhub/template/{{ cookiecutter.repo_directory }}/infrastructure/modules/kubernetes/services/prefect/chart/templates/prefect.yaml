@@ -38,7 +38,10 @@ spec:
             - name: NAMESPACE
               value: {{ .Values.namespace }}
             - name: IMAGE_PULL_SECRETS
-              value: ''
+              valueFrom:
+                secretKeyRef:
+                  name: image_pull_secret
+                  key: imagePullSecret
             - name: PREFECT__CLOUD__AGENT__LABELS
               value: '[]'
             - name: JOB_MEM_REQUEST

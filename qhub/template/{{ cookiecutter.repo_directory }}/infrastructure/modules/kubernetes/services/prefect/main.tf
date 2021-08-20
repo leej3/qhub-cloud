@@ -9,6 +9,11 @@ resource "helm_release" "prefect" {
   }
 
   set_sensitive {
+    name  = "imagePullSecret"
+    value = var.image_pull_secret
+  }
+
+  set_sensitive {
     name  = "jupyterHubToken"
     value = var.jupyterhub_api_token
   }
