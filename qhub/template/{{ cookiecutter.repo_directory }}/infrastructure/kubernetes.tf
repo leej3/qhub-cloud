@@ -239,7 +239,7 @@ module "prefect" {
   prefectLabels        = "{{ cookiecutter.prefect.agent.prefectLabels }}"
   {% endif -%}
   {% if cookiecutter.prefect.agent.envVars is defined -%}
-  image                = "{{ cookiecutter.prefect.agent.envVars }}"
+  envVars              = "{{ cookiecutter.prefect.agent.envVars }}"
   {% endif -%}
 }
 {% endif -%}
