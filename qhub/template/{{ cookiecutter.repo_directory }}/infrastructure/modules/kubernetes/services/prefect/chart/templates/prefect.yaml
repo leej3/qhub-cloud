@@ -40,7 +40,7 @@ spec:
             - name: IMAGE_PULL_SECRETS
               value: ''
             - name: PREFECT__CLOUD__AGENT__LABELS
-              value: {{ .Values.agent.prefectLabels | toJson | quote }}
+              value: {{ .Values.agent.prefectLabels }}
             - name: JOB_MEM_REQUEST
               value: ''
             - name: JOB_MEM_LIMIT
@@ -58,7 +58,7 @@ spec:
             - name: PREFECT__CLOUD__AGENT__AGENT_ADDRESS
               value: http://:8080
             - name: PREFECT__CLOUD__AGENT__ENV_VARS
-              value: {{ .Values.agent.envVars | toJson | quote }}
+              value: {{ .Values.agent.envVars }}
           image: {{ .Values.prefectImage }}
           imagePullPolicy: Always
           livenessProbe:

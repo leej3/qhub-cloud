@@ -23,11 +23,11 @@ variable "cloud_api" {
 }
 
 variable "prefectLabels" {
-  type    = list
+  type    = list(any)
   default = []
 }
 
 variable "envVars" {
-  type    = map
+  type    = map(any)
   default = {}
 }
