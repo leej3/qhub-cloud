@@ -27,7 +27,7 @@ variable "agent.prefectLabels" {
   default = []
 }
 
-variable "agent.prefectLabels" {
+variable "agent.envVars" {
   type    = map
   default = {}
 }
