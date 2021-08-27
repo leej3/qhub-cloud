@@ -30,11 +30,11 @@ resource "helm_release" "prefect" {
 
   set {
     name  = "agent.prefectLabels"
-    value = var.agent.prefectLabels
+    value = var.prefectLabels
   }
 
   set {
     name  = "agent.envVars"
-    value = var.agent.envVars
+    value = var.envVars
   }
 }

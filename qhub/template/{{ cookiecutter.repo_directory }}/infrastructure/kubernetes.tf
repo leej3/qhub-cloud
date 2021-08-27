@@ -240,7 +240,7 @@ module "prefect" {
   prefectLabels        = "{{ cookiecutter.prefect.agent.prefectLabels }}"
   {% endif -%}
   {% if cookiecutter.prefect.agent.envVars is defined -%}
-  envVars = {
+  envVars              = {
   {% for key, value in cookiecutter.prefect.agent.envVars.items() %}
       "{{ "%s" | format(key) }}" = "{{ value }}"
   {% endfor %}

@@ -22,12 +22,12 @@ variable "cloud_api" {
   default = "https://api.prefect.io"
 }
 
-variable "agent.prefectLabels" {
+variable "prefectLabels" {
   type    = list
   default = []
 }
 
-variable "agent.envVars" {
+variable "envVars" {
   type    = map
   default = {}
 }
