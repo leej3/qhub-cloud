@@ -34,7 +34,7 @@ resource "helm_release" "prefect" {
   }
 
   set {
-    name  = "agent.evnVars"
-    value = var.agent.evnVars
+    name  = "agent.envVars"
+    value = var.agent.envVars
   }
 }
