@@ -236,11 +236,11 @@ module "prefect" {
   image                = "{{ cookiecutter.prefect.image }}"
   {% endif -%}
   {% if cookiecutter.prefect.agent is defined %}
-  prefect_agent        = {
+  prefect_agent        = jsonencode({
   {% for key, value in cookiecutter.prefect.agent.items() %}
     "{{ "%s" | format(key) }}" = "{{ value }}"
   {% endfor %}
-    }
+    })
   {% endif %}
 }
 {% endif -%}

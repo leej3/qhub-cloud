@@ -21,3 +21,8 @@ variable "cloud_api" {
   type    = string
   default = "https://api.prefect.io"
 }
+
+variable "prefect_agent" {
+  type    = string
+  default = ""
+}

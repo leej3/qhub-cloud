@@ -27,4 +27,10 @@ resource "helm_release" "prefect" {
     name  = "cloudApi"
     value = var.cloud_api
   }
+
+  set {
+    name  = "prefectAgent"
+    value = "{{ var.prefect_agent }}"
+  }
+
 }
