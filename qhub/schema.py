@@ -72,10 +72,24 @@ class ClearML(Base):
 
 # ============== Prefect =============
 
+class PrefectAgent(Base):
+    prefect__cloud__api: typing.Optional[str]
+    image_pull_secrets: typing.Optional[str]
+    prefect__cloud__agent__labels: typing.Optional[str]
+    job_mem_request: typing.Optional[str]
+    job_mem_limit: typing.Optional[str]
+    job_cpu_request: typing.Optional[str]
+    job_cpu_limit: typing.Optional[str]
+    image_pull_policy: typing.Optional[str]
+    service_account_name: typing.Optional[str]
+    prefect__backend: typing.Optional[str]
+    prefect__cloud__agent__agent_address: typing.Optional[str]
+    prefect__cloud__agent__env_vars: typing.Optional[str]
 
 class Prefect(Base):
     enabled: bool
     image: typing.Optional[str]
+    agent: typing.Optional[PrefectAgent]
 
 
 # ============= Terraform ===============

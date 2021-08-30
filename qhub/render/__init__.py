@@ -135,7 +135,6 @@ def render_template(output_directory, config_filename, force=False):
         source_repo_dir=input_directory / "{{ cookiecutter.repo_directory }}",
         dest_repo_dir=output_directory / repo_directory,
     )
-
     generate_files(
         repo_dir=str(input_directory),
         context={"cookiecutter": config},

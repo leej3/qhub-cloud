@@ -235,6 +235,13 @@ module "prefect" {
   {% if cookiecutter.prefect.image is defined -%}
   image                = "{{ cookiecutter.prefect.image }}"
   {% endif -%}
+  {% if cookiecutter.prefect.agent is defined %}
+  prefect_agent        = {
+  {% for key, value in cookiecutter.prefect.agent.items() %}
+    "{{ "%s" | format(key) }}" = "{{ value }}"
+  {% endfor %}
+    }
+  {% endif %}
 }
 {% endif -%}
 
