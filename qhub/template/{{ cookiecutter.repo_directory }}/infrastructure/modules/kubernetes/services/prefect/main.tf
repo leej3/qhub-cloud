@@ -1,3 +1,6 @@
+terraform {
+  experiments = [module_variable_optional_attrs]
+}
 resource "helm_release" "prefect" {
   name      = "prefect"
   namespace = var.namespace
@@ -30,9 +33,13 @@ resource "helm_release" "prefect" {
 
 
   set {
+    type  =  object({
+        prefect__cloud__api = optional(string)
+        image_pull_secrets = optional(string)
+        prefect__cloud__agent__labels = optional(string)
+    })
     name  = "prefectAgent"
-    value =  var.prefect_agent
-    type  =  map(string)
-  }
+    value =  {"image_pull_secrets" = "val1"}
+}
 
 }

@@ -1,3 +1,6 @@
+terraform {
+  experiments = [module_variable_optional_attrs]
+}
 variable "jupyterhub_api_token" {
   type    = string
   default = ""
@@ -23,6 +26,10 @@ variable "cloud_api" {
 }
 
 variable "prefect_agent" {
-  type    = map(string)
+  type  =  object({
+    prefect__cloud__api = optional(string)
+    image_pull_secrets = optional(string)
+    prefect__cloud__agent__labels = optional(string)
+  })
   default = {}
 }
