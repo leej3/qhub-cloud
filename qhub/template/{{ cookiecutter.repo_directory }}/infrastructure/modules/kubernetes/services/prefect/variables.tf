@@ -23,6 +23,6 @@ variable "cloud_api" {
 }
 
 variable "prefect_agent" {
-  type    = string
-  default = ""
+  type    = map(string)
+  default = {}
 }

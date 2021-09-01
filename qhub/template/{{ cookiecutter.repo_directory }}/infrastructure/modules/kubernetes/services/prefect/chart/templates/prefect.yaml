@@ -40,9 +40,9 @@ spec:
             - name: IMAGE_PULL_SECRETS
               value: ''
             - name: PREFECT__CLOUD__AGENT__LABELS
-              value: {{ .Values.agent.prefect__cloud__agent__labels }}
+              value: {{ .Values.agent }}
             - name: JOB_MEM_REQUEST
-              value: {{ .Values.agent.job_mem_request }} 
+              value: {{ .Values.prefectAgent.JOB_MEM_REQUEST }} 
             - name: JOB_MEM_LIMIT
               value: ''
             - name: JOB_CPU_REQUEST

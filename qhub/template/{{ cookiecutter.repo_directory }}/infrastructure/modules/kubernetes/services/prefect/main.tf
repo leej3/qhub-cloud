@@ -28,9 +28,11 @@ resource "helm_release" "prefect" {
     value = var.cloud_api
   }
 
+
   set {
     name  = "prefectAgent"
-    value = "{{ var.prefect_agent }}"
+    value =  var.prefect_agent
+    type  =  map(string)
   }
 
 }
