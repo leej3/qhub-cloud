@@ -5,7 +5,7 @@ resource "kubernetes_service" "forwardauth-service" {
   }
   spec {
     selector = {
-      app = kubernetes_deployment.forwardauth-deployment.spec.0.template.0.metadata[0].labels.app
+      "cloud.google.com/gke-nodepool" = "compute"
     }
     port {
       port        = 4181
@@ -31,9 +31,7 @@ resource "kubernetes_deployment" "forwardauth-deployment" {
     replicas = 1
 
     selector {
-      match_labels = {
-        app = "forwardauth-pod"
-      }
+      "cloud.google.com/gke-nodepool" = "compute"
     }
 
     template {
