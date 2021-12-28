@@ -5,7 +5,7 @@ resource "kubernetes_service" "forwardauth-service" {
   }
   spec {
     selector = {
-      "cloud.google.com/gke-nodepool" = "compute"
+      cloud.google.com/gke-nodepool = "compute"
     }
     port {
       port        = 4181
@@ -31,7 +31,7 @@ resource "kubernetes_deployment" "forwardauth-deployment" {
     replicas = 1
 
     selector {
-      "cloud.google.com/gke-nodepool" = "compute"
+      cloud.google.com/gke-nodepool = "compute"
     }
 
     template {
